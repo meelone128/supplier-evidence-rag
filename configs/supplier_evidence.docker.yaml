@@ -1,0 +1,44 @@
+project: "supplier-evidence"
+
+# Docker-only runtime profile. Secrets still come from .env and are never
+# baked into an image or committed to source control.
+env:
+  openai_api_key: ${OPENAI_API_KEY}
+  openai_base_url: ${OPENAI_BASE_URL}
+
+data:
+  paths: ["data/supplier_evidence"]
+  include_extensions: [".md", ".txt", ".csv", ".pdf", ".docx"]
+  exclude_globs: ["**/node_modules/**", "**/.git/**"]
+
+chunking:
+  strategy: "hybrid"
+  target_token_range: [250, 550]
+  overlap_tokens: 50
+
+embeddings:
+  provider: "openai"
+  model: "embedding-3"
+  dimensions: 1024
+  batch_size: 64
+
+vector_store:
+  backend: "custom"
+  custom:
+    kind: "qdrant"
+    qdrant:
+      url: "http://qdrant:6333"
+      collection: "supplier_evidence"
+      distance: "cosine"
+
+query:
+  top_k: 12
+  max_context_tokens: 6000
+  expansion: { enabled: false }
+  hyde: { enabled: false }
+  similarity_filter: { enabled: false }
+  rerank: { enabled: false }
+
+synthesis:
+  model: "glm-4.5-flash"
+  reasoning_effort: "low"

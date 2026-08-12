@@ -1,0 +1,89 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+rag_starter_kit.egg-info/
+
+# Virtual environments and env files
+.venv/
+venv/
+env/
+.env
+.env.*
+*.env
+!.env.example
+
+# Test and tool caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
+
+# Optional Next.js UI / Node
+node_modules/
+.next/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker local volumes
+qdrant_data/
+docker-data/
+
+# Local data and temp artifacts. Keep only the project-owned, simulated
+# SupplierEvidence corpus in Git; real uploads, caches and audit records stay
+# local by default.
+data/*
+!data/example_data/
+!data/example_data/**
+!data/supplier_evidence/
+!data/supplier_evidence/evidence_catalog.json
+!data/supplier_evidence/policies/
+!data/supplier_evidence/policies/**
+!data/supplier_evidence/reviews/
+!data/supplier_evidence/reviews/**
+!data/supplier_evidence/suppliers/
+!data/supplier_evidence/suppliers/**
+data/supplier_evidence/pending_uploads/
+data/supplier_evidence/uploads/
+data/supplier_evidence/audit/
+data/supplier_evidence/conflicts/
+data/supplier_evidence/ted/cache/
+data/supplier_evidence/ted/review_queue.json
+tmp/
+artifacts/
+configs/*
+!configs/default.openai.yaml
+!configs/default.qdrant.yaml
+!configs/supplier_evidence.docker.yaml
+
+# Evals
+evals/datasets/*.jsonl
+evals/reports/*

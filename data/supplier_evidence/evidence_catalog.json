@@ -1,0 +1,87 @@
+[
+  {
+    "evidence_id": "northstar-iso-9001-v1",
+    "supplier_name": "Northstar Components GmbH",
+    "category": "industrial_components",
+    "region": "EU",
+    "evidence_type": "qualification",
+    "source_title": "ISO 9001 质量体系证书（模拟材料）",
+    "source_version": "v1",
+    "source_location": "northstar_iso_certificate.md",
+    "authority": "official",
+    "issued_on": "2025-01-01",
+    "expires_on": "2027-01-01",
+    "fields": {
+      "material_type": "iso_9001",
+      "registered_address": "Berlin A Street 10",
+      "certificate_scope": "工业紧固件制造"
+    }
+  },
+  {
+    "evidence_id": "northstar-contract-v1",
+    "supplier_name": "Northstar Components GmbH",
+    "category": "industrial_components",
+    "region": "EU",
+    "evidence_type": "contract",
+    "source_title": "框架合同摘要（模拟材料）",
+    "source_version": "v1",
+    "source_location": "northstar_framework_contract.md",
+    "authority": "contractual",
+    "issued_on": "2026-03-01",
+    "fields": {
+      "material_type": "business_license",
+      "registered_address": "Berlin B Street 20",
+      "certificate_scope": "工业紧固件制造"
+    }
+  },
+  {
+    "evidence_id": "eurofast-license-v1",
+    "supplier_name": "Eurofast Parts S.A.",
+    "category": "industrial_components",
+    "region": "EU",
+    "evidence_type": "qualification",
+    "source_title": "营业登记材料（模拟材料）",
+    "source_version": "v1",
+    "source_location": "eurofast_registration.md",
+    "authority": "official",
+    "issued_on": "2025-07-15",
+    "fields": {
+      "material_type": "business_license",
+      "registered_address": "Lyon Industry Park 3"
+    }
+  },
+  {
+    "evidence_id": "eurofast-iso-9001-v1",
+    "supplier_name": "Eurofast Parts S.A.",
+    "category": "industrial_components",
+    "region": "EU",
+    "evidence_type": "qualification",
+    "source_title": "ISO 9001 质量体系证书（模拟材料）",
+    "source_version": "v1",
+    "source_location": "eurofast_iso_certificate.md",
+    "authority": "official",
+    "issued_on": "2023-09-01",
+    "expires_on": "2026-09-15",
+    "fields": {
+      "material_type": "iso_9001",
+      "registered_address": "Lyon Industry Park 3",
+      "certificate_scope": "工业紧固件制造"
+    }
+  },
+  {
+    "evidence_id": "eurofast-quality-v1",
+    "supplier_name": "Eurofast Parts S.A.",
+    "category": "industrial_components",
+    "region": "EU",
+    "evidence_type": "historical_review",
+    "source_title": "来料质量检测报告（模拟材料）",
+    "source_version": "v1",
+    "source_location": "eurofast_quality_inspection.md",
+    "authority": "internal",
+    "issued_on": "2026-06-30",
+    "fields": {
+      "material_type": "quality_inspection",
+      "defect_rate": 0.012
+    }
+  }
+]

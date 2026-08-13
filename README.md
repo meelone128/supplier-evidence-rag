@@ -62,7 +62,7 @@ SupplierEvidence 面向采购与供应商准入复核场景：输入供应商、
 | 冲突人工处置 | 显示冲突字段、不同取值和对应证据；支持待确认 / 已确认 / 已解决与人工备注，并记录审计事件。 |
 | 受控知识运营 | 文件先暂存，完成隐私确认和人工批准后才能显式重建索引；支持 Markdown、TXT、CSV、PDF、DOCX。 |
 | TED 连接器 | 小批量拉取公开采购公告并进入人工确认队列，不自动写入知识库。 |
-| 固定回归评测 | 7 条项目内固定用例覆盖证据召回、缺失材料、冲突、有效期、规则决策与输出门禁。 |
+| 固定回归评测 | 7 条关键回归用例覆盖证据召回、缺失材料、冲突、有效期、规则决策与输出门禁；用于锁定一期最易出错的核心链路，不宣称为大规模模型基准。 |
 
 ## 04. 核心处理链路
 
@@ -152,14 +152,34 @@ docker compose ps
 4. 点击检索证据，查看原始材料、结构化元数据和 Qdrant 真实分片。
 5. 可选择生成带引用的 AI 核验说明，或导出 Markdown 报告。
 
-## 09. 数据边界与安全原则
+## 09. 界面展示
+
+### 回归评测与受控知识运营
+
+项目内置 7 条关键回归用例，分别覆盖证据召回、材料缺失、冲突识别、有效期、规则决策和输出门禁。页面也展示 TED 公告人工确认队列、Qdrant 分片数量、上传暂存与人工标注流程。
+
+![SupplierEvidence 回归评测与受控知识运营](docs/images/01-evaluation-and-governance.png)
+
+### Hybrid Retrieval 与双门禁核验结果
+
+核验工作台展示 BM25 + 向量 + RRF 的检索模式、证据分与规则风险分；Evidence Gate 给出材料缺失和注册地址冲突，人工可更新冲突处置状态。
+
+![SupplierEvidence 混合检索与双门禁](docs/images/02-hybrid-retrieval-and-gates.png)
+
+### 证据详情：结构化字段、Qdrant 分片与原始材料
+
+每条检索证据都可以展开，查看结构化字段、Qdrant 中实际写入的分片文本以及原始材料，避免只展示抽象的“引用 ID”。
+
+![SupplierEvidence 证据详情与 Qdrant 分片](docs/images/03-evidence-detail-and-qdrant-chunk.png)
+
+## 10. 数据边界与安全原则
 
 - 仓库仅包含项目自建的模拟供应商材料。
 - 公开 TED 数据必须先经过人工确认；真实企业材料应在脱敏、授权和人工标注后再导入。
 - 上传文件不会自动加入检索或发送给模型。
 - `.env` 已被 Git 忽略；请勿将模型密钥、企业资料或采购合同提交到仓库。
 
-## 10. 项目结构
+## 11. 项目结构
 
 ```text
 supplier_evidence/      领域逻辑：检索、规则门禁、报告、上传、TED、审计
@@ -171,7 +191,7 @@ configs/                Qdrant 与模型配置
 compose.yaml            Docker 编排
 ```
 
-## 11. 验证
+## 12. 验证
 
 ```powershell
 docker compose ps
@@ -180,7 +200,7 @@ Invoke-RestMethod http://localhost:8002/ready
 
 固定评测入口：`GET /supplier-evidence/evaluations/latest`。
 
-## 12. 后续生产化演进
+## 13. 后续生产化演进
 
 - 将本地 JSON / 文件状态迁移至 PostgreSQL 和对象存储。
 - 为 TED 同步加入定时调度、去重与变更提醒。

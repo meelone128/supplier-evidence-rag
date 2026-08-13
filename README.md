@@ -11,6 +11,14 @@ SupplierEvidence 面向采购与供应商准入复核场景：输入供应商、
 
 > 这是辅助人工复核的证据系统，不对企业作自动信用、法律或制裁判断。
 
+<p align="center">
+  <img src="docs/architecture.svg" alt="SupplierEvidence 混合检索与双门禁架构" width="100%" />
+</p>
+
+| Hybrid Retrieval | Evidence Gate | Output Gate | 人工复核与审计 |
+| :---: | :---: | :---: | :---: |
+| BM25 + Qdrant + RRF | 材料、时效、冲突 | 引用校验、无证据拦截 | 状态流转与备注 |
+
 ## 01. 问题定义
 
 供应商准入材料往往分散在合同、营业资质、认证证书、质量文件、历史评审与公开采购信息中。传统“问答式 RAG”只会给出相似文本，无法稳定回答：

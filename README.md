@@ -198,7 +198,7 @@ docker compose ps
 Invoke-RestMethod http://localhost:8002/ready
 ```
 
-固定评测入口：`GET /supplier-evidence/evaluations/latest`。
+固定评测入口：GET /supplier-evidence/evaluations/latest
 
 ## 13. 后续生产化演进
 

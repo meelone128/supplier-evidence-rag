@@ -122,7 +122,7 @@ Copy-Item .env.example .env
 
 ```dotenv
 OPENAI_API_KEY=your-key
-OPENAI_BASE_URL=https://your-openai-compatible-endpoint/
+OPENAI_BASE_URL=https://your-openai-compatible-endpoint
 ```
 
 ### 2. 启动
